@@ -11,6 +11,6 @@
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<img class="header_image" src="../images/beatles_image.jpeg" />
+			<img class="header_image" src="./images/beatles_image.jpeg" />
 			<span class="header_text">The Beatles Database</span>
 		</div>

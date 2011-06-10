@@ -57,7 +57,7 @@ public class Lab08 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String queryString = request.getParameter("query");
 		
-		//get query
+		System.out.println(queryString);
 		
 		db.setQueryString(queryString);
 		@SuppressWarnings("rawtypes")

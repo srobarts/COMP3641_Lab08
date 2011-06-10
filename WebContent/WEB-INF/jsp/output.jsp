@@ -8,7 +8,8 @@
 	<br />
 	<em>Your Query: ${requestScope.queryString}</em>
 	<br />
-	<h3><a href="./index.jsp">Query Again</a></h3>
+	<h3><a href="./user.jsp">Query Again</a></h3>
+	<h3><a href="logout">Logout</a></h3>
 	
 	<div id="tablecontent">
 		<lab08:headertags headerNames="${requestScope.columnNames}" backgroundColor="tan"></lab08:headertags>

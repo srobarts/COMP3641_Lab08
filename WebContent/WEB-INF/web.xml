@@ -36,13 +36,14 @@
     	<url-pattern>/querydb</url-pattern>
   	</servlet-mapping>
   	
+  	<!-- Servlet to logout the user. -->
   	<servlet>
     	<servlet-name>Logout</servlet-name>
     	<servlet-class>a00222500.lab08.Logout</servlet-class>
   	</servlet>
   	<servlet-mapping>
     	<servlet-name>Logout</servlet-name>
-    	<url-pattern>/admin/logout</url-pattern>
+    	<url-pattern>/logout</url-pattern>
   	</servlet-mapping>
   	
   	<!-- Turn off invoker. Send requests 

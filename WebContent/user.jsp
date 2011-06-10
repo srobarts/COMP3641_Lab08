@@ -5,6 +5,8 @@
 <div id="content">
 
 	<% if (request.isUserInRole("user")) { %>
+	
+	<h3><a href="logout">Logout</a></h3>
 
 	<div id="stylized" class="myform">
 		<form id="form" name="form" method="post" action="querydb">
@@ -25,8 +27,11 @@
 	<% } %>
 	
 	<% if (request.isUserInRole("guest")) { %>
+
+	<h3><a href="logout">Logout</a></h3>
 	
 	<h2>Ick, lowly guest</h2>
+	<p>We would like to serve you but you don't pay us</p>
 	
 	
 	<% } %>
