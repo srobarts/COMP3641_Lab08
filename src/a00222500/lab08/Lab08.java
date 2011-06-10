@@ -8,8 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import a00222500.lab08.data.DatabaseBean;
 
 /**
@@ -55,12 +53,7 @@ public class Lab08 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String requestedAction = request.getParameter("action");
-		if(requestedAction.equals("login")) {
-			//process user login
-			
-			
-		}
+
 		
 	}
 	

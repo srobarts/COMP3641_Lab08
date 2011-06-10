@@ -6,16 +6,7 @@
   
   <display-name>Lab08</display-name>
   
-	<welcome-file-list>
-    	<welcome-file>index.jsp</welcome-file>
-  	</welcome-file-list>
-  	
-  	<context-param>
-    	<param-name>outputPageTitle</param-name>
-    	<param-value>COMP 3641 Lab08 Output Page</param-value>
-  	</context-param>
-
-	<servlet>
+  <servlet>
 	   	<servlet-name>Lab08</servlet-name>
 	   	<servlet-class>a00222500.lab08.Lab08</servlet-class>
 	   	<init-param>
@@ -42,7 +33,57 @@
 	
 	<servlet-mapping>
     	<servlet-name>Lab08</servlet-name>
-    	<url-pattern>/query_database</url-pattern>
+    	<url-pattern>/query</url-pattern>
   	</servlet-mapping>
+  	
+  	<!-- Turn off invoker. Send requests 
+       to login.jsp. -->
+	<servlet>
+    	<servlet-name>NoInvoker</servlet-name>
+    	<servlet-class>a00222500.lab08.NoInvokerServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>NoInvoker</servlet-name>
+    	<url-pattern>/servlet/*</url-pattern>
+  	</servlet-mapping>
+
+	<welcome-file-list>
+    	<welcome-file>index.html</welcome-file>
+  	</welcome-file-list>
+  	
+  	<context-param>
+    	<param-name>outputPageTitle</param-name>
+    	<param-value>COMP 3641 Lab08 Output Page</param-value>
+  	</context-param>
+  	
+	<login-config>
+    	<auth-method>FORM</auth-method>
+    	<form-login-config>
+      		<form-login-page>/admin/login.jsp</form-login-page>
+      		<form-error-page>/admin/login-error.jsp</form-error-page>
+    	</form-login-config>
+  	</login-config>
+	
+	<security-constraint>
+    	<web-resource-collection>
+      		<web-resource-name>User Access</web-resource-name>
+      		<url-pattern>/user/*</url-pattern>
+    	</web-resource-collection>
+    	<auth-constraint>
+      		<role-name>Registered Users</role-name>
+      		<role-name>user</role-name>
+    	</auth-constraint>
+  	</security-constraint>	
+  	
+  	<security-constraint>
+    	<web-resource-collection>
+      		<web-resource-name>Guest Access</web-resource-name>
+      		<url-pattern>/guest/*</url-pattern>
+    	</web-resource-collection>
+    	<auth-constraint>
+      		<role-name>Registered Guests</role-name>
+      		<role-name>guest</role-name>
+    	</auth-constraint>
+  	</security-constraint>	
 
 </web-app>

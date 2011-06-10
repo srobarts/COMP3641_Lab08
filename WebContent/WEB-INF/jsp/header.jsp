@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="./styles/lab08styles.css" >
+<link rel="stylesheet" type="text/css" href="../styles/lab08styles.css" >
 <title>${initParam.applicationPageTitle}</title>
 </head>
 
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<img class="header_image" src="images/beatles_image.jpeg" />
+			<img class="header_image" src="../images/beatles_image.jpeg" />
 			<span class="header_text">The Beatles Database</span>
 		</div>
