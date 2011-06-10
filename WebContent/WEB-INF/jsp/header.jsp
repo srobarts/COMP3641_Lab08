@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="../styles/lab08styles.css" >
+<link rel="stylesheet" type="text/css" href="./styles/lab08styles.css" >
 <title>${initParam.applicationPageTitle}</title>
 </head>
 

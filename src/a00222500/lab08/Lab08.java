@@ -1,7 +1,10 @@
 package a00222500.lab08;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Vector;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,9 +55,29 @@ public class Lab08 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String queryString = request.getParameter("query");
 		
+		//get query
+		
+		db.setQueryString(queryString);
+		@SuppressWarnings("rawtypes")
+		Vector tableData = db.runQuery();
+		
+		//display headers
+		@SuppressWarnings("rawtypes")
+		Vector headerNames = null;
+		try {
+			headerNames = db.generateMetaData();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("queryString", queryString);
+		request.setAttribute("columnNames", headerNames);
+		request.setAttribute("results", tableData);
 
-		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/output.jsp");
+		dispatcher.include(request, response);
 	}
 	
 	/**

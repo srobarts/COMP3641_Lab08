@@ -33,11 +33,20 @@
 	
 	<servlet-mapping>
     	<servlet-name>Lab08</servlet-name>
-    	<url-pattern>/query</url-pattern>
+    	<url-pattern>/querydb</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>Logout</servlet-name>
+    	<servlet-class>a00222500.lab08.Logout</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>Logout</servlet-name>
+    	<url-pattern>/admin/logout</url-pattern>
   	</servlet-mapping>
   	
   	<!-- Turn off invoker. Send requests 
-       to login.jsp. -->
+       to index.html. -->
 	<servlet>
     	<servlet-name>NoInvoker</servlet-name>
     	<servlet-class>a00222500.lab08.NoInvokerServlet</servlet-class>
@@ -63,27 +72,24 @@
       		<form-error-page>/admin/login-error.jsp</form-error-page>
     	</form-login-config>
   	</login-config>
+  	
+  	<security-role>
+  		<role-name>user</role-name>
+  	</security-role>
+  	<security-role>
+    	<role-name>guest</role-name>
+  	</security-role>
 	
 	<security-constraint>
     	<web-resource-collection>
       		<web-resource-name>User Access</web-resource-name>
-      		<url-pattern>/user/*</url-pattern>
+      		<url-pattern>/user.jsp</url-pattern>
     	</web-resource-collection>
     	<auth-constraint>
-      		<role-name>Registered Users</role-name>
       		<role-name>user</role-name>
-    	</auth-constraint>
-  	</security-constraint>	
-  	
-  	<security-constraint>
-    	<web-resource-collection>
-      		<web-resource-name>Guest Access</web-resource-name>
-      		<url-pattern>/guest/*</url-pattern>
-    	</web-resource-collection>
-    	<auth-constraint>
-      		<role-name>Registered Guests</role-name>
       		<role-name>guest</role-name>
     	</auth-constraint>
   	</security-constraint>	
+
 
 </web-app>

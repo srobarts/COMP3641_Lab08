@@ -3,8 +3,11 @@
 <%@ page errorPage="/WEB-INF/jsp/errorPage.jsp" %>
 						
 <div id="content">
+
+	<% if (request.isUserInRole("user")) { %>
+
 	<div id="stylized" class="myform">
-		<form id="form" name="form" method="post" action="Lab04.jsp">
+		<form id="form" name="form" method="post" action="querydb">
 			<p>Input a correct SQL statement below to query the database.</p>
 			
 			<h3>Sample Query:</h3>
@@ -18,6 +21,18 @@
 			<div class="spacer"></div>
 		</form>
 	</div>
+
+	<% } %>
+	
+	<% if (request.isUserInRole("guest")) { %>
+	
+	<h2>Ick, lowly guest</h2>
+	
+	
+	<% } %>
+	
+
+
 </div>
 
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
